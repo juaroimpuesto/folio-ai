@@ -1,7 +1,7 @@
-/* Label: WARO TECH - Full Stack AI VA Folio (LOGO ANCHORED TO HOME)
+/* Label: WARO TECH - Full Stack AI VA Folio (TYPESCRIPT BUILD FIXED)
    Style: Cyber-Corporate / Premium Dark Mode
-   Tech: Next.js + Tailwind + Lucide Icons + Formspree
-   Constraint: 100% Mobile Responsive | G-Protocol Applied | Logo Linked to Top
+   Tech: Next.js + Tailwind + Lucide Icons
+   Constraint: 100% Mobile Responsive | G-Protocol Applied | Fixed React.cloneElement Error
 */
 
 import React from 'react';
@@ -49,7 +49,7 @@ export default function FullStackVAFolio() {
   return (
     <div className="min-h-screen bg-[#030303] text-white selection:bg-blue-600/40 font-sans scroll-smooth">
       
-      {/* --- NAVIGATION: LOGO LINKED TO TOP --- */}
+      {/* --- NAVIGATION --- */}
       <nav className="fixed top-0 w-full z-50 bg-[#030303]/90 backdrop-blur-xl border-b border-white/5 text-[10px]">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           <a href="#" className="flex items-center gap-2 group cursor-pointer">
@@ -129,7 +129,7 @@ export default function FullStackVAFolio() {
             <h2 className="text-sm font-mono text-blue-500 uppercase tracking-[0.3em] mb-4 tracking-tighter font-bold">Technical Domain</h2>
             <p className="text-4xl md:text-5xl font-bold tracking-tight uppercase italic font-black">Expertise Matrix.</p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-left">
             {[
               { icon: <Bot className="text-blue-500 group-hover:text-white" />, title: "API Orchestration", desc: "Integrating Gemini, GPT-4, and Claude into CRM workflows via Webhooks and Zapier." },
               { icon: <Code className="text-purple-500 group-hover:text-white" />, title: "Full-Stack Logic", desc: "Advanced Next.js, TypeScript, and PHP/SQL for building scalable internal agency tools." },
@@ -140,9 +140,9 @@ export default function FullStackVAFolio() {
               { icon: <BarChart3 className="text-cyan-500 group-hover:text-white" />, title: "Metrics & KPIs", desc: "Developing real-time performance tracking systems for ROI-focused marketing campaigns." },
               { icon: <Fingerprint className="text-indigo-500 group-hover:text-white" />, title: "Digital Identity", desc: "Architecting unique brand signatures that stand out in crowded AI-saturated markets." }
             ].map((skill, i) => (
-              <div key={i} className="p-8 rounded-[2rem] bg-white/[0.02] border border-white/5 hover:bg-blue-600 group transition-all text-left">
+              <div key={i} className="p-8 rounded-[2rem] bg-white/[0.02] border border-white/5 hover:bg-blue-600 group transition-all">
                 <div className="mb-6">{skill.icon}</div>
-                <h4 className="font-bold uppercase tracking-widest text-sm mb-2 italic">{skill.title}</h4>
+                <h4 className="font-bold uppercase tracking-widest text-sm mb-2 italic tracking-tighter">{skill.title}</h4>
                 <p className="text-[10px] text-gray-500 group-hover:text-blue-100 leading-relaxed uppercase tracking-widest font-bold tracking-tighter">{skill.desc}</p>
               </div>
             ))}
@@ -150,24 +150,26 @@ export default function FullStackVAFolio() {
         </div>
       </section>
 
-      {/* --- SOLUTIONS MATRIX --- */}
+      {/* --- SOLUTIONS MATRIX (FIXED FOR BUILD) --- */}
       <section id="solutions" className="py-32 px-6 bg-white/[0.01] border-y border-white/5">
         <div className="max-w-7xl mx-auto">
-          <div className="mb-20 text-left">
+          <div className="mb-20 text-left lg:text-left">
             <h2 className="text-sm font-mono text-blue-500 uppercase tracking-[0.3em] mb-4 italic tracking-tighter font-bold">Operational Scale</h2>
             <p className="text-4xl md:text-5xl font-bold tracking-tight uppercase font-black italic">Agency Solutions Matrix.</p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
             {[
-              { icon: <Search className="text-blue-500" />, title: "AI Search Indexing", desc: "Visibility optimization for SGE and Perplexity ecosystems." },
-              { icon: <Workflow className="text-purple-500" />, title: "Autonomous Flows", desc: "End-to-end automation for lead and client onboarding cycles." },
-              { icon: <Box className="text-pink-500" />, title: "AI Content Engines", desc: "Mass-production of brand assets via fine-tuned LLM agents." },
-              { icon: <Database className="text-green-500" />, title: "CRM Engineering", desc: "Secure database structures for high-volume agency operations." },
-              { icon: <BarChart3 className="text-cyan-500" />, title: "Predictive Metrics", desc: "Real-time ROI tracking and operational bottleneck analysis." },
-              { icon: <Settings className="text-orange-500" />, title: "Tech-Stack Management", desc: "API maintenance and technical support for high-ticket tools." }
+              { icon: Search, color: "text-blue-500", title: "AI Search Indexing", desc: "Visibility optimization for SGE and Perplexity ecosystems." },
+              { icon: Workflow, color: "text-purple-500", title: "Autonomous Flows", desc: "End-to-end automation for lead and client onboarding cycles." },
+              { icon: Box, color: "text-pink-500", title: "AI Content Engines", desc: "Mass-production of brand assets via fine-tuned LLM agents." },
+              { icon: Database, color: "text-green-500", title: "CRM Engineering", desc: "Secure database structures for high-volume agency operations." },
+              { icon: BarChart3, color: "text-cyan-500", title: "Predictive Metrics", desc: "Real-time ROI tracking and operational bottleneck analysis." },
+              { icon: Settings, color: "text-orange-500", title: "Tech-Stack Management", desc: "API maintenance and technical support for high-ticket tools." }
             ].map((sol, i) => (
-              <div key={i} className="p-10 rounded-[2.5rem] bg-white/[0.03] border border-white/5 hover:border-blue-500/50 transition-all group text-left">
-                <div className="mb-6 group-hover:rotate-12 transition-transform">{React.cloneElement(sol.icon as React.ReactElement, { size: 40 })}</div>
+              <div key={i} className="p-10 rounded-[2.5rem] bg-white/[0.03] border border-white/5 hover:border-blue-500/50 transition-all group">
+                <div className="mb-6 group-hover:rotate-12 transition-transform">
+                  <sol.icon className={sol.color} size={40} />
+                </div>
                 <h3 className="text-xl font-bold mb-3 uppercase italic tracking-widest tracking-tighter">{sol.title}</h3>
                 <p className="text-[10px] text-gray-500 uppercase tracking-widest leading-relaxed italic font-bold tracking-tighter">{sol.desc}</p>
               </div>
@@ -193,18 +195,18 @@ export default function FullStackVAFolio() {
                 </div>
                 <h3 className="text-3xl md:text-5xl font-black uppercase mb-6 italic tracking-tighter leading-none text-white">Inventory & POS <br/><span className="text-blue-600 italic">Logic Suite</span></h3>
                 <p className="text-gray-400 text-sm mb-10 leading-relaxed italic font-bold">"I developed this system to solve the 'Manual Entry Gap' in retail operations. By automating the sync between physical sales and digital stock levels, businesses eliminate human error."</p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-10">
-                  <div className="flex items-start gap-4 uppercase font-bold tracking-widest">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-10 font-bold uppercase tracking-widest">
+                  <div className="flex items-start gap-4">
                     <CheckCircle2 className="text-blue-500 mt-1" size={20} />
-                    <div><p className="text-white text-[11px]">98% Accuracy</p><p className="text-[10px] text-gray-500 leading-relaxed mt-1 tracking-tighter font-bold">Error-free triggers.</p></div>
+                    <div><p className="text-white text-[11px]">98% Accuracy</p><p className="text-[10px] text-gray-500 leading-relaxed mt-1">Error-free triggers.</p></div>
                   </div>
-                  <div className="flex items-start gap-4 uppercase font-bold tracking-widest">
+                  <div className="flex items-start gap-4">
                     <Activity className="text-blue-500 mt-1" size={20} />
-                    <div><p className="text-white text-[11px]">Auto-Reporting</p><p className="text-[10px] text-gray-500 leading-relaxed mt-1 tracking-tighter font-bold">Instant ROI tracking.</p></div>
+                    <div><p className="text-white text-[11px]">Auto-Reporting</p><p className="text-[10px] text-gray-500 leading-relaxed mt-1">Instant ROI tracking.</p></div>
                   </div>
                 </div>
               </div>
-              <div className="bg-[#050505] rounded-[2.5rem] border border-white/5 aspect-video lg:aspect-square flex items-center justify-center relative overflow-hidden order-1 lg:order-2"><Server size={100} className="text-blue-600 opacity-10 animate-pulse" /><div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-transparent" /></div>
+              <div className="bg-[#050505] rounded-[2.5rem] border border-white/5 aspect-video lg:aspect-square flex items-center justify-center relative overflow-hidden order-1 lg:order-2 shadow-2xl"><Server size={100} className="text-blue-600 opacity-10 animate-pulse" /><div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-transparent" /></div>
             </div>
 
             <div className="group relative grid grid-cols-1 lg:grid-cols-2 gap-12 p-8 md:p-16 rounded-[3.5rem] bg-white/[0.02] border border-white/5 hover:bg-white/[0.04] transition-all overflow-hidden text-left">
@@ -248,7 +250,7 @@ export default function FullStackVAFolio() {
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 uppercase font-bold text-white max-w-lg">
-                <a href="https://www.linkedin.com/in/juaro-impuesto-b96743157/" target="_blank" className="group flex items-center justify-between p-6 rounded-[1.5rem] bg-white/[0.02] border border-white/5 hover:bg-blue-600 transition-all font-mono">
+                <a href="https://linkedin.com/in/your-profile" target="_blank" className="group flex items-center justify-between p-6 rounded-[1.5rem] bg-white/[0.02] border border-white/5 hover:bg-blue-600 transition-all font-mono">
                   <div className="flex items-center gap-4"><Linkedin size={20} className="text-blue-500 group-hover:text-white" /><span className="text-[10px] tracking-widest">LinkedIn</span></div>
                   <ArrowRight size={16} />
                 </a>
@@ -256,11 +258,11 @@ export default function FullStackVAFolio() {
                   <div className="flex items-center gap-4"><MessageCircle size={20} className="text-green-500 group-hover:text-white" /><span className="text-[10px] tracking-widest">WhatsApp</span></div>
                   <ArrowRight size={16} />
                 </a>
-                <a href="https://web.facebook.com/profile.php?id=61586711326892" target="_blank" className="group flex items-center justify-between p-6 rounded-[1.5rem] bg-white/[0.02] border border-white/5 hover:bg-blue-600 transition-all font-mono">
+                  <a href="https://web.facebook.com/profile.php?id=61586711326892" target="_blank" className="group flex items-center justify-between p-6 rounded-[1.5rem] bg-white/[0.02] border border-white/5 hover:bg-blue-600 transition-all font-mono">
                   <div className="flex items-center gap-4"><Facebook size={20} className="text-blue-500 group-hover:text-white" /><span className="text-[10px] tracking-widest">Facebook</span></div>
                   <ArrowRight size={16} />
                 </a>
-                
+
               </div>
             </div>
 
@@ -272,33 +274,11 @@ export default function FullStackVAFolio() {
               
               <form action="https://formspree.io/f/mlgnkrdv" method="POST" className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 uppercase font-bold font-mono tracking-tighter">
-                  <input 
-                    type="text" 
-                    name="name" 
-                    placeholder="NAME" 
-                    required 
-                    className="bg-white/5 border border-white/10 p-4 rounded-xl text-xs focus:border-blue-500 outline-none transition-all placeholder:text-gray-700 text-white"
-                  />
-                  <input 
-                    type="email" 
-                    name="email" 
-                    placeholder="EMAIL" 
-                    required 
-                    className="bg-white/5 border border-white/10 p-4 rounded-xl text-xs focus:border-blue-500 outline-none transition-all placeholder:text-gray-700 text-white"
-                  />
+                  <input type="text" name="name" placeholder="NAME" required className="bg-white/5 border border-white/10 p-4 rounded-xl text-xs focus:border-blue-500 outline-none transition-all placeholder:text-gray-700 text-white" />
+                  <input type="email" name="email" placeholder="EMAIL" required className="bg-white/5 border border-white/10 p-4 rounded-xl text-xs focus:border-blue-500 outline-none transition-all placeholder:text-gray-700 text-white" />
                 </div>
-                <textarea 
-                  name="message" 
-                  rows={4} 
-                  placeholder="WHAT CAN WE AUTOMATE?" 
-                  required 
-                  className="w-full bg-white/5 border border-white/10 p-4 rounded-xl text-xs focus:border-blue-500 outline-none transition-all placeholder:text-gray-700 font-mono tracking-tighter text-white"
-                ></textarea>
-                
-                <button 
-                  type="submit" 
-                  className="w-full py-5 bg-blue-600 hover:bg-blue-700 text-white font-black text-sm rounded-xl transition-all flex items-center justify-center gap-3 uppercase tracking-widest shadow-xl shadow-blue-600/10 group"
-                >
+                <textarea name="message" rows={4} placeholder="WHAT CAN WE AUTOMATE?" required className="w-full bg-white/5 border border-white/10 p-4 rounded-xl text-xs focus:border-blue-500 outline-none transition-all placeholder:text-gray-700 font-mono tracking-tighter text-white"></textarea>
+                <button type="submit" className="w-full py-5 bg-blue-600 hover:bg-blue-700 text-white font-black text-sm rounded-xl transition-all flex items-center justify-center gap-3 uppercase tracking-widest shadow-xl shadow-blue-600/10 group">
                   Initiate Sync <Send size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                 </button>
               </form>
@@ -306,7 +286,7 @@ export default function FullStackVAFolio() {
           </div>
 
           <div className="pt-16 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8 font-bold font-mono text-gray-700">
-            <div className="flex items-center gap-4"><div className="w-8 h-8 bg-white/5 rounded-lg flex items-center justify-center font-bold font-mono tracking-tighter"><Binary size={14} className="text-blue-500 font-bold" /></div><span className="font-black tracking-tighter uppercase text-sm underline underline-offset-4 decoration-blue-600 text-white font-bold font-mono">WARO TECH</span></div>
+            <div className="flex items-center gap-4 text-white"><div className="w-8 h-8 bg-white/5 rounded-lg flex items-center justify-center font-bold font-mono tracking-tighter"><Binary size={14} className="text-blue-500 font-bold" /></div><span className="font-black tracking-tighter uppercase text-sm underline underline-offset-4 decoration-blue-600 text-white font-bold font-mono tracking-tighter uppercase">WARO TECH</span></div>
             <p className="text-[10px] tracking-[0.8em] uppercase italic font-bold">© 2026 WARO TECH SOLUTIONS | ALL RIGHTS RESERVED</p>
             <div className="flex gap-8 text-[10px] uppercase tracking-widest text-blue-500 font-bold"><span>Status: v2.0.4</span><span>Next.js 16.1.6</span></div>
           </div>
